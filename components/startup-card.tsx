@@ -8,7 +8,7 @@ export const StartupCard = ({ post }) => {
   return (
     <li className="border border-white py-6 px-5 hover:bg-neutral-900/80">
       <div className="flex justify-between">
-        <p>{formatDate(post?._createdAt)}</p>
+        <p>{formatDate(post?.createdAt)}</p>
         <div className="flex items-center gap-1.5">
           <EyeIcon className="size-4" />
           <span>{post?.views}</span>
@@ -17,7 +17,7 @@ export const StartupCard = ({ post }) => {
 
       <div className="flex justify-between mt-5 gap-5">
         <div className="flex-1">
-          <Link href={`user/${post?.author?._id}`}>
+          <Link href={`user/${post?.author?.id}`}>
             <p className="font-medium">{post?.author?.name}</p>
           </Link>
           <Link href={`startup/${post?.author?._id}`}>
@@ -25,7 +25,7 @@ export const StartupCard = ({ post }) => {
           </Link>
         </div>
 
-        <Link href={`user/${post?.author?._id}`}>
+        <Link href={`user/${post?.author?.id}`}>
           <Image
             src={post?.author?.image!}
             alt={post?.author?.name!}
@@ -36,7 +36,7 @@ export const StartupCard = ({ post }) => {
         </Link>
       </div>
 
-      <Link href={`startup/${post?.author?._id}`}>
+      <Link href={`startup/${post?.author?.id}`}>
         <p>{post?.description}</p>
 
         <img src={post?.image} alt="placeholder" />
@@ -48,7 +48,7 @@ export const StartupCard = ({ post }) => {
         </Link>
         <Button asChild>
           <Link
-            href={`/startup/${post?._id}`}
+            href={`/startup/${post?.id}`}
             className="p-2 rounded-full border border-white/20"
           >
             Details
