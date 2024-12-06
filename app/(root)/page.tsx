@@ -14,7 +14,7 @@ export default async function Home({
       views: 55,
       author: {
         _id: 1,
-        name: "me",
+        name: "dazai",
         image:
           "https://i.pinimg.com/736x/cb/ad/3d/cbad3d660e3e06d6c66126eb38b946e5.jpg",
       },
@@ -48,9 +48,7 @@ export default async function Home({
 
         <ul className="mt-7 grid md:grid-cols-3 sm:grid-cols-2 gap-5">
           {posts.length > 0 ? (
-            posts.map((post: StartupCardType) => (
-              <StartupCard key={post._id} post={post} />
-            ))
+            posts.map((post) => <StartupCard key={post._id} post={post} />)
           ) : (
             <p>no startups found</p>
           )}

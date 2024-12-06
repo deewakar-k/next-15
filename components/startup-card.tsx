@@ -4,12 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "./ui/button";
 
-export const StartupCard = ({ post }: { post: StartupCardType }) => {
+export const StartupCard = ({ post }) => {
   return (
-    <li>
+    <li className="border border-white py-6 px-5 hover:bg-neutral-900/80">
       <div className="flex justify-between">
         <p>{formatDate(post?._createdAt)}</p>
-        <div className="flex gap-1.5">
+        <div className="flex items-center gap-1.5">
           <EyeIcon className="size-4" />
           <span>{post?.views}</span>
         </div>
@@ -18,10 +18,10 @@ export const StartupCard = ({ post }: { post: StartupCardType }) => {
       <div className="flex justify-between mt-5 gap-5">
         <div className="flex-1">
           <Link href={`user/${post?.author?._id}`}>
-            <p>{post?.author?.name}</p>
+            <p className="font-medium">{post?.author?.name}</p>
           </Link>
           <Link href={`startup/${post?.author?._id}`}>
-            <h3>{post?.title}</h3>
+            <h3 className="font-semibold text-lg">{post?.title}</h3>
           </Link>
         </div>
 
@@ -44,10 +44,15 @@ export const StartupCard = ({ post }: { post: StartupCardType }) => {
 
       <div className="flex justify-between gap-3 mt-5">
         <Link href={`/?query=${post?.category?.toLowerCase()}`}>
-          <p className="font-medium text-sm">{post?.category}</p>
+          <p className="font-medium text-sm text-white/60">{post?.category}</p>
         </Link>
         <Button asChild>
-          <Link href={`/startup/${post?._id}`}>Details</Link>
+          <Link
+            href={`/startup/${post?._id}`}
+            className="p-2 rounded-full border border-white/20"
+          >
+            Details
+          </Link>
         </Button>
       </div>
     </li>
